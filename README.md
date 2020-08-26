@@ -21,3 +21,26 @@ Docker, Travis, Heroku
 - `docker images` - все образы
 - `docker ps --all` - все контейнеры
 - `docker rm <container-name> --force` - остановка и удаление контейнера
+
+### Travis
+
+#### Инициализация
+Зарегистрироваться на `https://travis-ci.com/`. Создать `.travis.yml`
+
+#### Настройка CLI
+- Команда `gem install travis`. На mac этой командой не получилось, поэтому использовал `brew install travis`
+- Логин `travis login --pro`
+
+После получения токена авторизации в Heroku командой `travis encrypt <token>` создается `api_key` для деплоя. <br>
+По умолчанию travis смотрит на `api.travis-ci.org`. Для того, что бы достучаться до `api.travis-ci.com` необходимо воспользоваться `travis encrypt --pro <token>`.
+
+### Heroku
+
+#### Инициализация
+- `npm install -g heroku`
+- `heroku login -i`
+- `heroku authorizations:create` - получение бессрочного токена
+  - `heroku auth:token` - если нужен токен со сроком действия
+
+#### Приложение
+`https://node-16.herokuapp.com/`
